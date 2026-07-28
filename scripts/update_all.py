@@ -13,7 +13,9 @@ Pipeline:
   4. Build       → regenerate dated resume PDF via build_pdf.py
 
 Secrets (set in repo Settings → Secrets → Actions):
-  GITHUB_TOKEN      — auto-provided by Actions (needs contents: write)
+  GH_PAT            — classic PAT with 'repo' scope; required to see private
+                      repos (/user/repos). Without it the workflow falls back to
+                      Actions' built-in GITHUB_TOKEN and public repos only.
   GEMINI_API_KEY    — primary AI provider (Google Gemini 2.5 Flash)
   ANTHROPIC_API_KEY — fallback AI provider (Claude Haiku) if Gemini unavailable
 
@@ -93,11 +95,19 @@ GITHUB_TOKEN   = os.environ.get("GITHUB_TOKEN", "")
 GEMINI_KEY     = os.environ.get("GEMINI_API_KEY", "")
 ANTHROPIC_KEY  = os.environ.get("ANTHROPIC_API_KEY", "")
 
-GH_HEADERS = {
-    "Authorization": f"Bearer {GITHUB_TOKEN}",
-    "Accept": "application/vnd.github+json",
-    "X-GitHub-Api-Version": "2022-11-28",
-}
+def _gh_headers():
+    """Auth header only when a token is present.
+
+    Sending 'Bearer ' with an empty token makes GitHub reject *every* request
+    with 401, including endpoints that would otherwise work unauthenticated.
+    """
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+    if GITHUB_TOKEN:
+        headers["Authorization"] = f"Bearer {GITHUB_TOKEN}"
+    return headers
 
 changes_log = []   # collected across all steps, printed at end
 
@@ -108,9 +118,37 @@ def log(msg):
 
 def gh(path, params=None):
     r = requests.get(f"https://api.github.com{path}",
-                     headers=GH_HEADERS, params=params, timeout=20)
+                     headers=_gh_headers(), params=params, timeout=20)
     r.raise_for_status()
     return r.json()
+
+def _status(exc):
+    return exc.response.status_code if exc.response is not None else None
+
+def verify_token():
+    """Check GITHUB_TOKEN up front; discard it if GitHub rejects it.
+
+    A revoked/expired PAT 401s on every call, which would silently empty out
+    every commit and README fetch. Dropping it lets the run continue against
+    public data instead.
+    """
+    global GITHUB_TOKEN
+    if not GITHUB_TOKEN:
+        log("  [warn] No GITHUB_TOKEN set — unauthenticated API "
+            "(60 req/hr, public repos only).")
+        return
+    try:
+        log(f"  Authenticated as {gh('/user')['login']}.")
+    except requests.HTTPError as e:
+        if _status(e) == 401:
+            log("  [warn] GITHUB_TOKEN rejected (401) — the PAT is missing, "
+                "expired or revoked. Set the GH_PAT secret to a fresh token "
+                "with 'repo' scope. Continuing unauthenticated…")
+            GITHUB_TOKEN = ""
+        else:
+            # Actions' built-in GITHUB_TOKEN 403s on /user but reads public data fine
+            log(f"  [warn] /user returned {_status(e)} — token cannot read user "
+                "data; private repos will be skipped this run.")
 
 def _gemini(prompt):
     try:
@@ -148,11 +186,10 @@ def ai_call(prompt):
     return None
 
 # ─── 1. GitHub data fetch ─────────────────────────────────────────────────────
-def fetch_repos():
+def _fetch_repos_paged(path):
     repos, page = [], 1
     while True:
-        batch = gh("/user/repos",
-                   {"per_page": 100, "page": page, "type": "owner"})
+        batch = gh(path, {"per_page": 100, "page": page, "type": "owner"})
         if not batch:
             break
         repos.extend(r for r in batch if not r["fork"])
@@ -160,6 +197,24 @@ def fetch_repos():
             break
         page += 1
     return repos
+
+def fetch_repos():
+    """Owned, non-fork repos — private ones included when the token allows it.
+
+    /user/repos needs a user PAT with 'repo' scope; Actions' built-in
+    GITHUB_TOKEN and expired PATs get 401/403 there. Fall back to the public
+    /users/{USERNAME}/repos listing so a bad token degrades the run to public
+    repos instead of aborting it.
+    """
+    if GITHUB_TOKEN:
+        try:
+            return _fetch_repos_paged("/user/repos")
+        except requests.HTTPError as e:
+            if _status(e) not in (401, 403):
+                raise
+            log(f"  [warn] /user/repos returned {_status(e)} — falling back to "
+                "the public repo listing (private repos skipped this run).")
+    return _fetch_repos_paged(f"/users/{USERNAME}/repos")
 
 def fetch_recent_commits(repo_name, since_days=COMMIT_DAYS):
     since = (datetime.now(timezone.utc) - timedelta(days=since_days)).isoformat()
@@ -690,6 +745,7 @@ def main():
 
     # ── Fetch repos ─────────────────────────────────────────────────────────
     log("\n── Fetching repos ──")
+    verify_token()
     repos = fetch_repos()
     log(f"  {len(repos)} non-fork repos found ({sum(1 for r in repos if not r['private'])} public, {sum(1 for r in repos if r['private'])} private).")
     repo_map = {r["name"]: r for r in repos}

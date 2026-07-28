@@ -30,7 +30,9 @@ jobs:
 
       - name: Run updater
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          # GH_PAT (classic, 'repo' scope) sees private repos too; the built-in
+          # token is a public-repo-only fallback so the run still completes.
+          GITHUB_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scripts/update_all.py
