@@ -7,7 +7,7 @@
     "location": "Hyderabad, India",
     "links": "linkedin.com/in/chaitanyaeswarrajesh  |  github.com/ChaitanyaEswarRajeshJakki"
   },
-  "summary": "Microsoft Certified Azure Data Engineer Associate (DP-203) with 4 years 10 months of hands-on IT experience building production Generative AI systems, voice AI pipelines, and cloud-scale ETL. Lead developer of AppNova AI, an enterprise full-stack multi-agent LLM platform (FastAPI, React/TypeScript, LangGraph, ChromaDB RAG) integrating Azure OpenAI, Claude, Gemini, and Groq. Architected 30+ Azure Data Factory pipelines for U.S. government agencies, cutting data processing time by 50%. Available for remote or Hyderabad-based AI Engineer and Azure Data Engineer roles.",
+  "summary": "Microsoft Certified Azure Data Engineer Associate (DP-203) with 4 years 11 months of hands-on IT experience building production Generative AI systems, voice AI pipelines, and cloud-scale ETL. Lead developer of AppNova AI, an enterprise full-stack multi-agent LLM platform (FastAPI, React/TypeScript, LangGraph, ChromaDB RAG) integrating Azure OpenAI, Claude, Gemini, and Groq. Architected 30+ Azure Data Factory pipelines for U.S. government agencies, cutting data processing time by 50%. Available for remote or Hyderabad-based AI Engineer and Azure Data Engineer roles.",
   "skills": {
     "AI & LLMs": "LangChain, LangGraph, Multi-Agent Orchestration, RAG, Prompt Engineering, Azure OpenAI, OpenAI / GPT, Claude, Gemini, Groq (LLaMA 3), Ollama, Whisper, Hugging Face, Embeddings, NLP, ChromaDB Vector Search",
     "Cloud & Azure": "Azure Data Factory (ADF), Azure Synapse Analytics, Azure Data Lake Gen2, Azure SQL, Azure Key Vault, Power BI, Azure Logic Apps",
@@ -23,7 +23,7 @@
       "company": "West Advanced Technologies India Pvt. Ltd.",
       "location": "Hyderabad",
       "period": "Aug 2021 \u2013 Present",
-      "it_experience": "4 years 10 months",
+      "it_experience": "4 years 11 months",
       "sections": [
         {
           "heading": "AI & GenAI Application Development",
@@ -88,7 +88,7 @@
       "stack": "FastAPI \u00b7 React/TypeScript \u00b7 LangGraph \u00b7 Azure OpenAI \u00b7 Claude \u00b7 Gemini \u00b7 ChromaDB \u00b7 SSE",
       "year": "2025 \u2013 Present",
       "bullets": [
-        "Pioneered a 13-agent LangGraph DAG that leverages Claude Code to convert legacy codebases into runnable stacks with audits, diagrams, security, and reports.",
+        "Pioneered a 13-agent LangGraph DAG that leverages Claude Code to convert legacy codebases into runnable stacks with audits, reports, and zero Claude Max API cost.",
         "Scaled throughput with SHA-256 content-fingerprint caching and SSE streaming, letting repeated uploads skip all LLM calls and serve cached results in seconds."
       ]
     },
@@ -98,7 +98,7 @@
       "stack": "Angular \u00b7 FastAPI \u00b7 GFPGAN \u00b7 DeblurGANv2 \u00b7 Whisper \u00b7 ViT-GPT2 \u00b7 Groq",
       "year": "2025",
       "bullets": [
-        "This AI-powered law enforcement platform unifies voice, crime mapping, NL\u2192SQL intelligence, deblur, and video narrative into an Angular dashboard with FastAPI backends.",
+        "AI-powered law enforcement and investigation platform unifies voice, crime intelligence, crime mapping, facial/vehicle deblur, and video narrative, built on Angular + FastAPI.",
         "Streamlined an end-to-end voice assistant (Whisper STT \u2192 Groq LLaMA 3 \u2192 gTTS) with async FastAPI, confidence thresholds, and escalation handling for failed transcription."
       ]
     },
@@ -136,7 +136,7 @@
       "stack": "Angular 18 \u00b7 FastAPI \u00b7 Ollama \u00b7 Streamlit \u00b7 scikit-learn",
       "year": "2025",
       "bullets": [
-        "AI-assisted full-stack app with Angular UI and FastAPI backend generates stack-specific starter apps, data, and validation, packaging them into downloadable ZIPs."
+        "Ollama-powered full-stack app with Angular, optional Streamlit UI, and FastAPI backend generates and packages starter apps, data, and validation."
       ]
     }
   ],

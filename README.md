@@ -34,7 +34,7 @@
 
 - 🏆 **Microsoft Certified Azure Data Engineer Associate (DP-203)**
 - 🤖 **4+ years** building production Generative AI — multi-agent platforms, RAG pipelines, voice AI, LLM orchestration
-- ☁️ **4Y 10M** hands-on IT experience — Azure Data Factory, ETL pipelines, cloud migration
+- ☁️ **4Y 11M** hands-on IT experience — Azure Data Factory, ETL pipelines, cloud migration
 - 🏛️ Delivered solutions for **U.S. government clients** — Contra Costa County, LA County, California State Agencies
 - 🌐 Open to **AI Engineer** and **Azure Data Engineer** roles — Remote or Hyderabad
 
@@ -71,17 +71,17 @@
 
 | Project | What it does | Stack | Repository |
 |---|---|---|---|
-| 🤖 **AppNova AI** | Pioneered a 13-agent LangGraph DAG that leverages Claude Code to convert legacy codebases into runnable stacks with audi    | FastAPI · React/TS · LangGraph · Claude · Gemini · ChromaDB | [AppNova_Docs](https://github.com/ChaitanyaEswarRajeshJakki/AppNova_Docs) |
-| 🎙️ **AriesGPT** | This AI-powered law enforcement platform unifies voice, crime mapping, NL→SQL intelligence, deblur, and video narrative         | Angular · FastAPI · Whisper · Groq · GFPGAN · DeblurGANv2 | Private |
+| 🤖 **AppNova AI** | Pioneered a 13-agent LangGraph DAG that leverages Claude Code to convert legacy codebases into runnable stacks with audi     | FastAPI · React/TS · LangGraph · Claude · Gemini · ChromaDB | [AppNova_Docs](https://github.com/ChaitanyaEswarRajeshJakki/AppNova_Docs) |
+| 🎙️ **AriesGPT** | AI-powered law enforcement and investigation platform unifies voice, crime intelligence, crime mapping, facial/vehicle d          | Angular · FastAPI · Whisper · Groq · GFPGAN · DeblurGANv2 | Private |
 | 🏛️ **GovGenie** | An AI assistant automating government RFP response generation and resume-to-template population, running locally with an       | FastAPI · Ollama · LangChain · ChromaDB | Private |
 | 📄 **ReferenceFiller** | Resume → DOCX template auto-fill via LLM + semantic field mapping | FastAPI · ChromaDB · Ollama · python-docx | Private |
 | 🎥 **Video to Narrative** | Surveillance footage → law-enforcement incident report with transcript & timestamps | Flask · Whisper · ViT-GPT2 · Groq LLaMA 3 | [video_to_narrative ★2](https://github.com/ChaitanyaEswarRajeshJakki/video_to_narrative) |
 | 📊 **Skill Matrix App** | PDF/DOCX resume → HR skill matrix via RAG (fully local LLM) | Flask · Ollama · ChromaDB · Mistral | [Skill_Matrix_App ★3](https://github.com/ChaitanyaEswarRajeshJakki/Skill_Matrix_App) |
-| 🎬 **Gemini YouTube Bot** | Zero-input AI video creation + auto-publish to YouTube | Gemini · MoviePy · gTTS · GitHub Actions | [gemini-youtube-automation ★287](https://github.com/ChaitanyaEswarRajeshJakki/gemini-youtube-automation) |
+| 🎬 **Gemini YouTube Bot** | Zero-input AI video creation + auto-publish to YouTube | Gemini · MoviePy · gTTS · GitHub Actions | [gemini-youtube-automation ★309](https://github.com/ChaitanyaEswarRajeshJakki/gemini-youtube-automation) |
 | 📱 **AI Content Bot** | Daily AI/Tech news → Gemini script → Edge TTS voiceover → vertical video → YouTube Shorts + Instagram Reels, fully automated via GitHub Actions | Gemini 2.5 Flash · Edge TTS · MoviePy · FFmpeg · Pexels · Cloudinary · GitHub Actions | [ai-content-bot](https://github.com/ChaitanyaEswarRajeshJakki/ai-content-bot) |
 | 🙏 **instagram-god-bot** | Automated GitHub Actions bot publishes daily Bhagavad Gita verses in Hindi, Telugu, English as Reels/Shorts using Gemini     | Gemini AI · Google TTS · FFmpeg | Private |
 | 🤖 **Skill_Matrix_Streamlit_App** | AI-powered Streamlit app using FastAPI, ChromaDB, and local Ollama LLM to parse resumes, fill templates, and answer ques   | Streamlit · FastAPI · Ollama | Private |
-| 🤖 **ModernizeAI** | AI-assisted full-stack app with Angular UI and FastAPI backend generates stack-specific starter apps, data, and validati    | Python · Angular · AI (Ollama) | Private |
+| 🤖 **ModernizeAI** | Ollama-powered full-stack app with Angular, optional Streamlit UI, and FastAPI backend generates and packages starter ap     | Python · Angular · AI (Ollama) | Private |
 | 🚀 **AppNovaAI** | AppNovaAI modernizes legacy code into runnable, audited stacks line-by-line using Claude Code, DAG-driven RAG agents, gu      | Python · FastAPI · Claude Code | Private |
 | 👋 **ChaitanyaEswarRajeshJakki** | Chaitanya Eswar Rajesh Jakki's dynamic developer profile, featuring AI/data engineering projects, an interactive career     | Python · Azure · AI/ML | [ChaitanyaEswarRajeshJakki](https://github.com/ChaitanyaEswarRajeshJakki/ChaitanyaEswarRajeshJakki) |
 | 💼 **SmartHire AI** | AI hiring platform — resume-job fitment, dual-role chat, TalentCore mobile app | FastAPI · SQLAlchemy · LLM · React Native · Expo | In Development |
@@ -283,7 +283,7 @@ Fork of the Open Source Computer Vision Library. Used as a reference and integra
 
 <p align="center">
   <img src="https://img.shields.io/badge/Public%20Repos-6-10B981?style=for-the-badge&logo=github"/>
-  <img src="https://img.shields.io/badge/Most%20Starred-gemini--youtube--automation%20%E2%98%85287-FFD700?style=for-the-badge&logo=github"/>
+  <img src="https://img.shields.io/badge/Most%20Starred-gemini--youtube--automation%20%E2%98%85309-FFD700?style=for-the-badge&logo=github"/>
   <img src="https://img.shields.io/badge/Primary%20Language-Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
   <img src="https://img.shields.io/badge/Focus%20Areas-AI%20%26%20Cloud-FF6B35?style=for-the-badge"/>
 </p>
@@ -293,7 +293,7 @@ Fork of the Open Source Computer Vision Library. Used as a reference and integra
 ## 🎯 Repository Overview
 
 ### 🤖 AI / GenAI Projects (Public)
-- **[gemini-youtube-automation](https://github.com/ChaitanyaEswarRajeshJakki/gemini-youtube-automation)** ★287 — A fully autonomous AI Agent/Python pipeline that utilizes Large Language Models (LLMs) …
+- **[gemini-youtube-automation](https://github.com/ChaitanyaEswarRajeshJakki/gemini-youtube-automation)** ★309 — A fully autonomous AI Agent/Python pipeline that utilizes Large Language Models (LLMs) …
 - **[Skill_Matrix_App](https://github.com/ChaitanyaEswarRajeshJakki/Skill_Matrix_App)** ★3 — AI-powered resume + DOCX template autofiller using local LLMs, Flask, and ChromaDB (RAG…
 - **[AppNova_Docs](https://github.com/ChaitanyaEswarRajeshJakki/AppNova_Docs)** — AI-powered codebase intelligence platform: chat with your repo, generate architecture d…
 
@@ -341,5 +341,5 @@ Fork of the Open Source Computer Vision Library. Used as a reference and integra
 ---
 
 <p align="center">
-  <i>Last Updated: June 2026</i>
+  <i>Last Updated: July 2026</i>
 </p>
